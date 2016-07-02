@@ -2,22 +2,24 @@ adding = True
 stringtable = []
 while adding:
     x = input()
-    if x == " ": adding = False
+    if x == " ":
+        adding = False
+        continue
     stringtable.append(x)
-    print(stringtable)
-'''s1 = input()
-s2 = input()
+    if stringtable[-1] == "": stringtable.pop()
 
-table1 = list(s1)
-table2 = list(s2)'''
-'''
-print(table1, table2)
+maxlenght = len(stringtable[0])
+for x in stringtable:
+    if len(x) > maxlenght:
+        maxlenght = len(x)
 
-if len(s1) >len(s2):
-    lenght = len(s1)
-else:
-    lenght = len(s2)
+for x in range(0, len(stringtable)):
+    if len(stringtable[x]) < maxlenght:
+        S = stringtable[x] + ' ' * (maxlenght-len(stringtable[x]))
+        stringtable[x] = S
 
-for x in range(0,lenght):
-    print(table1[x], table2[x])'''
+for x in range(0,maxlenght):
+    for row in stringtable:
+        print(row[x],' ', end='')
+    print("")
 
